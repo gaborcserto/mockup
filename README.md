@@ -1,1 +1,1 @@
-# Smart Code website
+# frontend mockup
