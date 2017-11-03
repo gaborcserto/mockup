@@ -1,0 +1,11 @@
+.header {
+	&__line {
+		&--dark {
+			background-color: $black;
+		}
+
+		&--light {
+			background-color: $base-gray-3;
+		}
+	}
+}

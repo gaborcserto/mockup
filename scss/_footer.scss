@@ -1,0 +1,20 @@
+.footer {
+	background-color: $base-gray-1;
+	color: $white;
+
+	a {
+		color: $white;
+	}
+
+	&__bottom {
+		display: block;
+
+		&__items {
+			text-align: center;
+
+			&__item {
+				display: inline-block;
+			}
+		}
+	}
+}

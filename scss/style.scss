@@ -1,0 +1,14 @@
+// Importing Reset styles
+@import "_generic/_reset";
+
+// Importing Variables
+@import "_variables/_variables";
+
+// Importing mixins
+@import "_mixins/_mixins";
+
+@import "layout";
+
+// Importing Layout Elements
+@import "header";
+@import "footer";

@@ -1,171 +1,116 @@
 'use strict';
-module.exports = function (grunt) {
 
-    var ASSETS = 'assets',
-        STYLE_FOLDER = ASSETS + '/css/',
-        VENDOR_FOLDER = ASSETS + '/vendor/';
+module.exports = function(grunt) {
+    var DIST_FOLDER = './dist/';
+    var SCRIPT_SRC_FOLDER = './script/';
+    var SCRIPT_DIST_FOLDER = DIST_FOLDER + 'script/';
+    var STYLE_DIST_FOLDER = DIST_FOLDER + 'style/';
 
+    require('load-grunt-tasks')(grunt, { pattern: ['grunt-*', '@*/grunt-*', 'gruntify-*'] });
 
-    /**
-     * Initialize grunt
-     */
     grunt.initConfig({
-
-        /**
-         * Read package.json
-         */
         pkg: grunt.file.readJSON('package.json'),
-
-        /**
-         * Set directory paths
-         */
-        dir: {
-            js: 'assets/js',
-            css: 'assets/css',
-            sass: 'assets/scss',
-            img: 'assets/img'
-        },
-
-        /**
-         * JSHint
-         */
-        jshint: {
-            gruntfile: 'Gruntfile.js',
-            files: ['<%= dir.js %>/src/**/*.js'],
+        autoprefixer: {
             options: {
-                jshintrc: '.jshintrc'
-            }
-        },
-
-        /**
-         * Concatenate
-         */
-        concat: {
-            options: {
-                stripBanners: true
-            },
-            js: {
-                src: '<%= jshint.files %>',
-                dest: '<%= dir.js %>/<%= pkg.name %>.js'
-            }
-        },
-
-
-        /**
-         * Sass compiling
-         */
-        sass: {
-            options: {
-                sourcemap: true
-            },
-            dist: {
-                files: {
-                    '<%= dir.css %>/style.css': '<%= dir.sass %>/style.scss'
-                }
-            }
-        },
-
-        /**
-         * CSS min
-         */
-        cssmin: {
-            options: {
-                mergeIntoShorthands: false,
-                roundingPrecision: -1,
-                sourceMap: true
-            },
-            target: {
-                files: {
-                    '<%= dir.css %>/style.min.css': ['<%= dir.css %>/style.css']
-                }
-            }
-        },
-
-        /**
-         * Make CSS dir
-         */
-        mkdir: {
-            all: {
-                options: {
-                    create: [STYLE_FOLDER, VENDOR_FOLDER]
-                }
-            }
-        },
-
-        /**
-         * Minify
-         */
-        uglify: {
-            // Minify js files in js/src/
-            dist: {
-                src: ['<%= dir.js %>/<%= pkg.name %>.js'],
-                dest: '<%= dir.js %>/script.min.js'
-            }
-        },
-
-        /**
-         * Watch
-         * @github.com/gruntjs/grunt-contrib-watch
-         */
-        watch: {
-
-            // JShint Gruntfile
-            gruntfile: {
-                files: 'Gruntfile.js',
-                tasks: ['jshint:gruntfile']
-            },
-
-            // Compile Sass dev on change
-            sass: {
-                files: '<%= dir.sass %>/**/*',
-                tasks: ['sass:dev']
-            },
-
-            // JShint, concat + uglify JS on change
-            js: {
-                files: '<%= jshint.files %>',
-                tasks: [/*'jshint', */'concat', 'uglify']
-            },
-
-            // Live reload files
-            livereload: {
-                options: {livereload: true},
-                files: [
-                    '<%= dir.css %>/**/*.css',                    // all .css files in css/ dir
-                    '<%= dir.js %>/**/*.js',                      // all .js files in js/ dir
-                    '**/*.{html,php}'                             // all .html + .php files
+                browsers: [
+                    '> 1%',
+                    'last 3 versions',
+                    'last 4 Android versions',
+                    'last 5 iOS versions'
                 ]
+            },
+            multiple_files: {
+                expand: true,
+                flatten: true,
+                src: STYLE_DIST_FOLDER + '*.min.css',
+                dest: STYLE_DIST_FOLDER
+            }
+        },
+        browserify: {
+            dist: {
+                options: {
+                    transform: [
+                        ['babelify', {
+                            presets: 'es2015',
+                            plugins: ['transform-object-rest-spread']
+                        }]
+                    ],
+                    browserifyOptions: {
+                        debug: true
+                    }
+                },
+                src: SCRIPT_SRC_FOLDER + 'app.es6',
+                dest: SCRIPT_DIST_FOLDER + 'script.dev.js',
+            }
+        },
+        clean: {
+            scriptDev: SCRIPT_DIST_FOLDER + '*.dev.*',
+            scriptProd: SCRIPT_DIST_FOLDER + '*.min.*',
+            styleDev: STYLE_DIST_FOLDER + '*.dev.*',
+            styleProd: STYLE_DIST_FOLDER + '*.min.*'
+        },
+        eslint: {
+            src: ['./script/**/*.es6']
+        },
+        sass: {
+            dev: {
+                options: {
+                    sourceMap: true,
+                    outputStyle: 'expanded'
+                },
+                files: {
+                    [STYLE_DIST_FOLDER + 'style.css']:   './scss/style.scss'
+                }
+            },
+            prod: {
+                options: {
+                    sourceMap: false,
+                    outputStyle: 'compressed'
+                },
+                files: {
+                    [STYLE_DIST_FOLDER + 'style.min.css']: './scss/all.scss'
+                }
+            }
+        },
+        sasslint: {
+            options: {
+                configFile: './.scss-lint.yml',
+                maxWarnings: 2000
+            },
+            target: ['./scss/**/*.scss']
+        },
+        uglify: {
+            dist: {
+                files: {
+                    [SCRIPT_DIST_FOLDER + 'script.min.js']: SCRIPT_DIST_FOLDER + 'script.dev.js'
+                }
+            }
+        },
+        watch: {
+            options: {
+                livereload: 35100
+            },
+            style: {
+                files: ['./scss/**/*.scss'],
+                tasks: ['style:dev']
+            },
+            script: {
+                files: ['./script/**/*.es6'],
+                tasks: ['script:dev']
+            },
+            php: {
+                files: ['**/*.php']
             }
         }
     });
 
-    /**
-     * Default Task
-     * run `grunt`
-     */
-    grunt.registerTask('default', [
-        'concat:js',                // Concatenate main JS files
-        'uglify',                   // Minifiy concatenated JS file
-        'sass',                     // Compile Sass with dev settings
-        'cssmin'
-    ]);
+    grunt.registerTask('script:dev', ['eslint', 'clean:scriptDev', 'browserify']);
+    grunt.registerTask('script:prod', ['eslint', 'clean:scriptProd', 'browserify', 'uglify']);
+    grunt.registerTask('style:dev', ['sasslint', 'clean:styleDev', 'sass:dev']);
+    grunt.registerTask('style:prod', ['sasslint', 'clean:styleProd', 'sass:prod', 'autoprefixer']);
 
-    grunt.registerTask('setup', [
-        'concat:js',                // Concatenate main JS files
-        'uglify',                   // Minifiy concatenated JS file
-        'sass',                     // Compile Sass with dev settings
-        'cssmin',
-        'mkdir'
-    ]);
+    grunt.registerTask('build:dev', ['style:dev', 'script:dev']);
+    grunt.registerTask('build:prod', ['style:prod', 'script:prod']);
 
-    /**
-     * Load the plugins specified in `package.json`
-     */
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-mkdir');
-    grunt.loadNpmTasks('grunt-sass');
+    grunt.registerTask('default', ['build:dev']);
 };
