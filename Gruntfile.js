@@ -40,7 +40,7 @@ module.exports = function(grunt) {
                     }
                 },
                 src: SCRIPT_SRC_FOLDER + 'app.es6',
-                dest: SCRIPT_DIST_FOLDER + 'script.dev.js',
+                dest: SCRIPT_DIST_FOLDER + 'script.dev.js'
             }
         },
         clean: {

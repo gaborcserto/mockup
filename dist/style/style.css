@@ -46,12 +46,73 @@ a {
   text-decoration: none;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 .header__line--dark {
   background-color: #000;
+  height: 75px;
+  padding: 20px;
+  position: relative;
 }
 
 .header__line--light {
   background-color: #f8f8f8;
+}
+
+.header__line__logo {
+  display: inline-block;
+  max-width: 100%;
+}
+
+.header__line__burger-button {
+  background: transparent;
+  border: 0;
+  display: block;
+  font-size: 0;
+  height: 35px;
+  overflow: hidden;
+  position: absolute;
+  right: 20px;
+  text-indent: -9999px;
+  top: 20px;
+  width: 35px;
+  z-index: 1000;
+}
+
+.header__line__burger-button span {
+  background-color: #fff;
+  display: block;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 15px;
+}
+
+.header__line__burger-button span::before, .header__line__burger-button span::after {
+  background-color: #fff;
+  content: "";
+  display: block;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.header__line__burger-button span::before {
+  bottom: 10px;
+}
+
+.header__line__burger-button span::after {
+  top: 10px;
+}
+
+@media (min-width: 992px) {
+  .header__line__burger-button {
+    display: none;
+  }
 }
 
 .footer {
