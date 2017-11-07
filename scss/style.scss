@@ -1,20 +1,22 @@
 // Importing Reset styles
-@import "_generic/_reset";
+@import "_generic/reset";
 
 // Importing Variables
-@import "_variables/_variables";
+@import "_variables/variables";
 
 // Importing mixins
-@import "_mixins/_mixins";
+@import "_mixins/mixins";
 
 // Impoorting sprites
-@import "_generic/_sprites";
+@import "_generic/sprites";
 
 // Importing vendors
 @import "_vendors/font-awesome/scss/font-awesome";
 
-@import "layout";
+// Importing common settings
+@import "common";
 
 // Importing Layout Elements
 @import "header";
+@import "container";
 @import "footer";

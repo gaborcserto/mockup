@@ -9,7 +9,6 @@
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
 
-    <link rel="icon" href="dist/images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="57x57" href="dist/images/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="dist/images/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="dist/images/apple-icon-72x72.png">
@@ -33,7 +32,7 @@
     <header class="header">
         <div class="header__line--dark">
             <div class="header__line__logo">
-                <a href="#"><img src="dist/images/brand_logo--desktop.png"></a>
+                <a href="#"><img src="dist/images/brand-logo--desktop.png"></a>
             </div>
 
             <button class="header__line__burger-button">
@@ -50,11 +49,56 @@
         </div>
     </header>
     <main class="main">
-
+        <section class="ticket">
+            <div class="ticket__cards">
+                <div class="ticket__card">
+                    <div class="ticket__card__inner">
+                        <h3 class="ticket__card__inner__title">Summer saver</h3>
+                        <p class="ticket__card__inner__price">€1595</p>
+                        <p class="ticket__card__inner__info">Save €300</p>
+                    </div>
+                    <button class="ticket__card__button">Book now</button>
+                </div>
+                <div class="ticket__card special-offer">
+                    <div class="ticket__card__inner">
+                        <h3 class="ticket__card__inner__title">Expo only</h3>
+                        <p class="ticket__card__inner__price">€299</p>
+                    </div>
+                    <button class="ticket__card__button">Book now</button>
+                </div>
+                <div class="ticket__card">
+                    <div class="ticket__card__inner">
+                        <h3 class="ticket__card__inner__title">Public & Govermental sector</h3>
+                        <p class="ticket__card__inner__price">€1295</p>
+                        <p class="ticket__card__inner__info">Save €300 from the summer saver</p>
+                    </div>
+                    <button class="ticket__card__button">Book now</button>
+                </div>
+                <div class="ticket__card">
+                    <div class="ticket__card__inner">
+                        <h3 class="ticket__card__inner__title">Standard conference & Expo</h3>
+                        <p class="ticket__card__inner__price">€1965</p>
+                        <p class="ticket__card__inner__info">Do you have promo code?</p>
+                    </div>
+                    <button class="ticket__card__button">Book now</button>
+                </div>
+            </div>
+            <p class="ticket__buttons"><button class="ticket__button">Compare ticket</button></p>
+        </section>
+        <section class="trusted-partners">
+            <h2 class="trusted-partners__title">Our trusted partners</h2>
+            <div class="trusted-partners__logos">
+                <img src="dist/images/trusted-partners__logo.png" alt="" />
+                <img src="dist/images/trusted-partners__logo.png" alt="" />
+                <img src="dist/images/trusted-partners__logo.png" alt="" />
+                <img src="dist/images/trusted-partners__logo.png" alt="" />
+                <img src="dist/images/trusted-partners__logo.png" alt="" />
+            </div>
+        </section>
     </main>
 </div>
 <footer class="footer">
-    <div class="footer__logo"><a><img src="dist/images/brand_logo--mobile__footer.jpg"></a></div>
+    <div class="footer__logo"><a><img src="dist/images/brand-logo--footer.png"></a></div>
     <ul class="footer__menu">
         <li><a href="#" title="HRN" class="footer__menu__item">HRN</a></li>
         <li><a href="#" title="About" class="footer__menu__item">About</a></li>
@@ -72,15 +116,16 @@
     </ul>
     <div class="footer__bottom">
         <div class="footer__bottom__items">
-            <span class="footer__bottom__items__item">HRN</span>
-            <a class="footer__bottom__item" href="#" title="Terms &amp; Conditions">Terms &amp; Conditions</a>
-            <a class="footer__bottom__item" href="#" title="Cookie Policy">Cookie Policy</a>
-            <span class="footer__bottom__item">Copyright © 2015 HRN Europe. All Rights Reserved.</span>
+            <span class="footer__bottom__item">HRN</span>
+            <a class="footer__bottom__item--link" href="#" title="Terms &amp; Conditions">Terms &amp; Conditions</a>
+            <a class="footer__bottom__item--link" href="#" title="Cookie Policy">Cookie Policy</a>
+            <span class="footer__bottom__item">Copyright © 2015 HRN Europe.</span>
+            <span class="footer__bottom__item">All Rights Reserved.</span>
         </div>
     </div>
 </footer>
 
 
-<script src="dist/script/script.min.js"></script>
+<!--<script src="dist/script/script.min.js"></script>-->
 </body>
 </html>

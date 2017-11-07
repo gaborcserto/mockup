@@ -1,0 +1,117 @@
+.container {
+	// sass-lint:disable-all
+	height: auto !important;
+	height: 100%;
+	// sass-lint:enable-all
+	margin: 0 auto -391px;
+	min-height: 100%;
+	padding: 0 0 391px;
+
+	@media (min-width: $breakpoints-sm) {
+		margin: 0 auto -319px;
+		padding: 0 0 319px;
+	}
+
+	.ticket {
+		//&__cards {}
+
+		&__card {
+			background-color: $base-gray-3;
+			box-shadow: 0 0 18px 0 $black-transparent-33;
+			display: block;
+			margin: 0 auto 31px;
+			text-align: center;
+			width: 325px;
+
+			&__inner {
+				&__title {
+					color: $base-blue;
+					font-size: 18px;
+					font-weight: bold;
+					text-transform: uppercase;
+				}
+
+				&__price {
+					color: $base-blue;
+					font-size: 37px;
+					font-weight: 900;
+				}
+
+				&__info {
+					color: $base-gray-4;
+					font-size: 14px;
+				}
+			}
+
+			&__button {
+				background: $base-blue;
+				border: 0;
+				color: $white;
+				display: block;
+				font-weight: 900;
+				line-height: 52px;
+				text-transform: uppercase;
+				width: 100%;
+			}
+
+		}
+
+		.special-offer {
+			.ticket {
+				&__card {
+					&__button {
+						background-color: $base-red;
+					}
+				}
+			}
+		}
+
+		&__buttons {
+			margin-bottom: 72px;
+			text-align: center;
+		}
+
+		&__button {
+			background: transparent;
+			border: 1px solid $base-blue;
+			color: $base-blue;
+			display: inline-block;
+			font-weight: bold;
+			line-height: 45px;
+			margin: 0 auto;
+			padding: 0 38px;
+			text-transform: uppercase;
+		}
+	}
+
+	.trusted-partners {
+		text-align: center;
+
+		&__title {
+			color: $base-gray-4;
+			margin-bottom: 38px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		&__logos {
+			display: inline-block;
+			margin-bottom: 66px;
+			text-align: center;
+
+			img {
+
+				padding: 10px 5px 0;
+
+
+				@media (min-width: $breakpoints-sm) {
+					padding: 10px 16px 0;
+				}
+
+				@media (min-width: $breakpoints-lg) {
+					padding: 10px 18px;
+				}
+			}
+		}
+	}
+}

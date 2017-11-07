@@ -1,6 +1,12 @@
+//fonts
+// sass-lint:disable-all
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=latin-ext');
+// sass-lint:enable-all
+
 //colors
 $white: #fff;
 $black: #000;
+$black-transparent-33: rgba(0, 0, 0, .33);
 
 $base-blue: #18a8e1;
 $base-red: #f03;
@@ -8,6 +14,7 @@ $base-red: #f03;
 $base-gray-1: #2c292a;
 $base-gray-2: #999;
 $base-gray-3: #f8f8f8;
+$base-gray-4: #ccc;
 
 //breakpoints
 $breakpoints-lg: 1200px;
