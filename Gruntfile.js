@@ -5,6 +5,7 @@ module.exports = function(grunt) {
     var SCRIPT_SRC_FOLDER = './script/';
     var SCRIPT_DIST_FOLDER = DIST_FOLDER + 'script/';
     var STYLE_DIST_FOLDER = DIST_FOLDER + 'style/';
+    var IMAGES_DIST_FOLDER = DIST_FOLDER + 'images/';
 
     require('load-grunt-tasks')(grunt, { pattern: ['grunt-*', '@*/grunt-*', 'gruntify-*'] });
 
@@ -68,7 +69,7 @@ module.exports = function(grunt) {
                     outputStyle: 'compressed'
                 },
                 files: {
-                    [STYLE_DIST_FOLDER + 'style.min.css']: './scss/all.scss'
+                    [STYLE_DIST_FOLDER + 'style.min.css']: './scss/style.scss'
                 }
             }
         },
@@ -78,6 +79,15 @@ module.exports = function(grunt) {
                 maxWarnings: 2000
             },
             target: ['./scss/**/*.scss']
+        },
+        sprite:{
+            all: {
+                src: IMAGES_DIST_FOLDER + 'sprites/*.png',
+                dest: IMAGES_DIST_FOLDER + 'spritesheet.png',
+                destCss: './scss/_generic/_sprites.scss',
+                algorithm: 'binary-tree',
+                padding: 20
+            }
         },
         uglify: {
             dist: {
@@ -106,11 +116,11 @@ module.exports = function(grunt) {
 
     grunt.registerTask('script:dev', ['eslint', 'clean:scriptDev', 'browserify']);
     grunt.registerTask('script:prod', ['eslint', 'clean:scriptProd', 'browserify', 'uglify']);
-    grunt.registerTask('style:dev', ['sasslint', 'clean:styleDev', 'sass:dev']);
+    grunt.registerTask('style:dev', ['sasslint', 'clean:styleDev', 'sass:dev', 'sass:prod']);
     grunt.registerTask('style:prod', ['sasslint', 'clean:styleProd', 'sass:prod', 'autoprefixer']);
 
-    grunt.registerTask('build:dev', ['style:dev', 'script:dev']);
-    grunt.registerTask('build:prod', ['style:prod', 'script:prod']);
+    grunt.registerTask('build:dev', ['sprite', 'style:dev', 'script:dev']);
+    grunt.registerTask('build:prod', ['sprite', 'style:prod', 'script:prod']);
 
     grunt.registerTask('default', ['build:dev']);
 };

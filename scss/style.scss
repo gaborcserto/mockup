@@ -7,6 +7,12 @@
 // Importing mixins
 @import "_mixins/_mixins";
 
+// Impoorting sprites
+@import "_generic/_sprites";
+
+// Importing vendors
+@import "_vendors/font-awesome/scss/font-awesome";
+
 @import "layout";
 
 // Importing Layout Elements
