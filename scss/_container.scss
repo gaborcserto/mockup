@@ -26,8 +26,17 @@
 			box-shadow: 0 0 18px 0 $black-transparent-20;
 			display: block;
 			margin: 0 auto 31px;
+			min-height: 180px;
 			text-align: center;
 			width: 325px;
+
+			@media (min-width: $breakpoints-sm) {
+				display: inline-block;
+				float: left;
+				margin: 0 8px 26px;
+				max-width: 50%;
+				width: calc(50% - 16px);
+			}
 
 			@media (min-width: $breakpoints-md) {
 				display: inline-block;
@@ -39,6 +48,14 @@
 
 			&__inner {
 				padding-top: 20px;
+
+				@media (min-width: $breakpoints-sm) {
+					height: 200px;
+				}
+
+				@media (min-width: $breakpoints-md) {
+					height: 180px;
+				}
 
 				&__title {
 					color: $base-blue;

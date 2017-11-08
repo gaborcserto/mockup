@@ -3447,8 +3447,19 @@ footer {
   box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
   display: block;
   margin: 0 auto 31px;
+  min-height: 180px;
   text-align: center;
   width: 325px;
+}
+
+@media (min-width: 768px) {
+  .container .ticket__card {
+    display: inline-block;
+    float: left;
+    margin: 0 8px 26px;
+    max-width: 50%;
+    width: calc(50% - 16px);
+  }
 }
 
 @media (min-width: 992px) {
@@ -3463,6 +3474,18 @@ footer {
 
 .container .ticket__card__inner {
   padding-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .container .ticket__card__inner {
+    height: 200px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container .ticket__card__inner {
+    height: 180px;
+  }
 }
 
 .container .ticket__card__inner__title {
