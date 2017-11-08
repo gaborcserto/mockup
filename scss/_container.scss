@@ -13,7 +13,12 @@
 	}
 
 	.ticket {
-		//&__cards {}
+		margin: 0 auto;
+		max-width: 1514px;
+
+		&__cards {
+			display: block;
+		}
 
 		&__card {
 			background-color: $base-gray-3;
@@ -22,6 +27,14 @@
 			margin: 0 auto 31px;
 			text-align: center;
 			width: 325px;
+
+			@media (min-width: $breakpoints-md) {
+				display: inline-block;
+				float: left;
+				margin: 0 8px;
+				max-width: 25%;
+				width: calc(25% - 16px);
+			}
 
 			&__inner {
 				padding-top: 20px;

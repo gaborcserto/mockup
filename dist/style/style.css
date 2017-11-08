@@ -3133,6 +3133,12 @@ footer {
   }
 }
 
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
 .header__line--dark {
   background-color: #000;
   height: 75px;
@@ -3215,6 +3221,8 @@ footer {
 @media (min-width: 992px) {
   .header__line__menu {
     box-shadow: none;
+    display: flex;
+    flex-wrap: wrap;
     margin: 0 auto 16px;
   }
 }
@@ -3230,9 +3238,23 @@ footer {
   text-align: center;
 }
 
+@media (min-width: 992px) {
+  .header__line__menu li {
+    flex-grow: 100;
+    float: left;
+  }
+}
+
 .header__line__menu li.active a {
   color: #18a8e1;
+  display: block;
   font-weight: bold;
+}
+
+@media (min-width: 992px) {
+  .header__line__menu li.active a {
+    line-height: 91px;
+  }
 }
 
 .header__line__menu li.active a [class*="icon-"] {
@@ -3282,9 +3304,16 @@ footer {
 
 .header__line__menu a {
   color: #999;
+  display: block;
   font-size: 12px;
   text-align: center;
   text-transform: uppercase;
+}
+
+@media (min-width: 992px) {
+  .header__line__menu a {
+    line-height: 91px;
+  }
 }
 
 .header__line__menu a .icon-user {
@@ -3313,6 +3342,12 @@ footer {
   background-position: -94px -41px;
   width: 13px;
   height: 21px;
+}
+
+@media (min-width: 992px) {
+  .header__line__menu a .icon {
+    float: left;
+  }
 }
 
 .header__line__menu a:hover {
@@ -3367,6 +3402,15 @@ footer {
   }
 }
 
+.container .ticket {
+  margin: 0 auto;
+  max-width: 1514px;
+}
+
+.container .ticket__cards {
+  display: block;
+}
+
 .container .ticket__card {
   background-color: #f8f8f8;
   box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
@@ -3374,6 +3418,16 @@ footer {
   margin: 0 auto 31px;
   text-align: center;
   width: 325px;
+}
+
+@media (min-width: 992px) {
+  .container .ticket__card {
+    display: inline-block;
+    float: left;
+    margin: 0 8px;
+    max-width: 25%;
+    width: calc(25% - 16px);
+  }
 }
 
 .container .ticket__card__inner {

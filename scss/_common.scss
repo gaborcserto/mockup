@@ -39,3 +39,7 @@ footer {
 		display: inline-block;
 	}
 }
+
+.clearfix {
+	@include clearfix;
+}
