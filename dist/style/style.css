@@ -3437,6 +3437,20 @@ footer {
   max-width: 1514px;
 }
 
+.container .ticket__group-description {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .container .ticket__group-description {
+    display: block;
+    font-size: 14px;
+    margin: 0 auto 60px;
+    max-width: 540px;
+    text-align: center;
+  }
+}
+
 .container .ticket__cards {
   display: block;
   margin-bottom: 40px;

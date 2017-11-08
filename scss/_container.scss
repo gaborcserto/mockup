@@ -16,6 +16,18 @@
 		margin: 0 auto;
 		max-width: 1514px;
 
+		&__group-description {
+			display: none;
+
+			@media (min-width: $breakpoints-md) {
+				display: block;
+				font-size: 14px;
+				margin: 0 auto 60px;
+				max-width: 540px;
+				text-align: center;
+			}
+		}
+
 		&__cards {
 			display: block;
 			margin-bottom: 40px;
