@@ -3122,6 +3122,17 @@ footer {
   display: inline-block;
 }
 
+[class*="icon-"] {
+  display: block;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  [class*="icon-"] {
+    display: inline-block;
+  }
+}
+
 .header__line--dark {
   background-color: #000;
   height: 75px;
@@ -3131,6 +3142,12 @@ footer {
 
 .header__line--light {
   background-color: #f8f8f8;
+}
+
+@media (min-width: 992px) {
+  .header__line--light {
+    box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
+  }
 }
 
 .header__line__logo {
@@ -3187,6 +3204,154 @@ footer {
   }
 }
 
+.header__line__menu {
+  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
+  display: block;
+  height: 91px;
+  margin-bottom: 16px;
+  max-width: 1148px;
+}
+
+@media (min-width: 992px) {
+  .header__line__menu {
+    box-shadow: none;
+    margin: 0 auto 16px;
+  }
+}
+
+.header__line__menu li {
+  box-sizing: border-box;
+  display: inline-block;
+  float: left;
+  line-height: 14px;
+  max-width: 25%;
+  padding: 18px 12px;
+  position: relative;
+  text-align: center;
+}
+
+.header__line__menu li.active a {
+  color: #18a8e1;
+  font-weight: bold;
+}
+
+.header__line__menu li.active a [class*="icon-"] {
+  height: 24px;
+}
+
+.header__line__menu li.active .icon-user {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: 0px -88px;
+  width: 11px;
+  height: 19px;
+}
+
+.header__line__menu li.active .icon-users {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: 0px 0px;
+  width: 27px;
+  height: 24px;
+}
+
+.header__line__menu li.active .icon-crosshair {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: 0px -44px;
+  width: 24px;
+  height: 24px;
+}
+
+.header__line__menu li.active .icon-bulb {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: -94px 0px;
+  width: 13px;
+  height: 21px;
+}
+
+.header__line__menu li.active::after {
+  border: 10px solid #f8f8f8;
+  bottom: -20px;
+  box-shadow: -3px 3px 4px 0 rgba(0, 0, 0, 0.1);
+  content: "";
+  height: 0;
+  left: calc(50% - 14.14px);
+  position: absolute;
+  transform: rotate(-45deg);
+  transform-origin: 0 0;
+  width: 0;
+}
+
+.header__line__menu a {
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.header__line__menu a .icon-user {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: -31px -88px;
+  width: 11px;
+  height: 19px;
+}
+
+.header__line__menu a .icon-users {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: -47px 0px;
+  width: 27px;
+  height: 24px;
+}
+
+.header__line__menu a .icon-crosshair {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: -44px -44px;
+  width: 24px;
+  height: 24px;
+}
+
+.header__line__menu a .icon-bulb {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: -94px -41px;
+  width: 13px;
+  height: 21px;
+}
+
+.header__line__menu a:hover {
+  color: #18a8e1;
+  font-weight: bold;
+}
+
+.header__line__menu a:hover .icon-user {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: 0px -88px;
+  width: 11px;
+  height: 19px;
+}
+
+.header__line__menu a:hover .icon-users {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: 0px 0px;
+  width: 27px;
+  height: 24px;
+}
+
+.header__line__menu a:hover .icon-crosshair {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: 0px -44px;
+  width: 24px;
+  height: 24px;
+}
+
+.header__line__menu a:hover .icon-bulb {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: -94px 0px;
+  width: 13px;
+  height: 21px;
+}
+
+.header__line__menu a [class*="icon-"] {
+  height: 24px;
+}
+
 .container {
   height: auto !important;
   height: 100%;
@@ -3204,16 +3369,20 @@ footer {
 
 .container .ticket__card {
   background-color: #f8f8f8;
-  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.33);
+  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
   display: block;
   margin: 0 auto 31px;
   text-align: center;
   width: 325px;
 }
 
+.container .ticket__card__inner {
+  padding-top: 20px;
+}
+
 .container .ticket__card__inner__title {
   color: #18a8e1;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -3222,10 +3391,19 @@ footer {
   color: #18a8e1;
   font-size: 37px;
   font-weight: 900;
+  margin-bottom: 18px;
 }
 
 .container .ticket__card__inner__info {
   color: #ccc;
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 8px;
+}
+
+.container .ticket__card__inner__date {
+  color: #18a8e1;
+  margin-bottom: 24px;
 }
 
 .container .ticket__card__button {
@@ -3237,6 +3415,11 @@ footer {
   line-height: 52px;
   text-transform: uppercase;
   width: 100%;
+}
+
+.container .ticket .special-offer__title {
+  color: #f03;
+  text-transform: uppercase;
 }
 
 .container .ticket .special-offer .ticket__card__button {

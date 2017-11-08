@@ -29,3 +29,13 @@ footer {
 	}
 }
 // sass-lint:enable-all
+
+//icons
+[class*="icon-"] {
+	display: block;
+	margin: 0 auto;
+
+	@media (min-width: $breakpoints-sm) {
+		display: inline-block;
+	}
+}

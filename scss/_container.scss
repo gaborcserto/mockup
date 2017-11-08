@@ -17,16 +17,18 @@
 
 		&__card {
 			background-color: $base-gray-3;
-			box-shadow: 0 0 18px 0 $black-transparent-33;
+			box-shadow: 0 0 18px 0 $black-transparent-20;
 			display: block;
 			margin: 0 auto 31px;
 			text-align: center;
 			width: 325px;
 
 			&__inner {
+				padding-top: 20px;
+
 				&__title {
 					color: $base-blue;
-					font-size: 18px;
+					font-size: 19px;
 					font-weight: bold;
 					text-transform: uppercase;
 				}
@@ -35,11 +37,19 @@
 					color: $base-blue;
 					font-size: 37px;
 					font-weight: 900;
+					margin-bottom: 18px;
 				}
 
 				&__info {
 					color: $base-gray-4;
 					font-size: 14px;
+					line-height: 14px;
+					margin-bottom: 8px;
+				}
+
+				&__date {
+					color: $base-blue;
+					margin-bottom: 24px;
 				}
 			}
 
@@ -57,6 +67,11 @@
 		}
 
 		.special-offer {
+			&__title {
+				color: $base-red;
+				text-transform: uppercase;
+			}
+
 			.ticket {
 				&__card {
 					&__button {

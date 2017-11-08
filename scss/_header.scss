@@ -9,6 +9,10 @@
 
 		&--light {
 			background-color: $base-gray-3;
+
+			@media (min-width: $breakpoints-md) {
+				box-shadow: 0 0 18px 0 $black-transparent-20;
+			}
 		}
 
 		&__logo {
@@ -61,6 +65,128 @@
 
 			@media (min-width: $breakpoints-md) {
 				display: none;
+			}
+		}
+
+		&__menu {
+			box-shadow: 0 0 18px 0 $black-transparent-20;
+			display: block;
+			height: 91px;
+			margin-bottom: 16px;
+			max-width: 1148px;
+
+			@media (min-width: $breakpoints-md) {
+				box-shadow: none;
+				margin: 0 auto 16px;
+			}
+
+			li {
+				box-sizing: border-box;
+				display: inline-block;
+				float: left;
+				line-height: 14px;
+				max-width: 25%;
+				padding: 18px 12px;
+				position: relative;
+				text-align: center;
+
+				&.active {
+					a {
+						color: $base-blue;
+						font-weight: bold;
+
+						[class*="icon-"] {
+							height: 24px;
+						}
+					}
+
+					.icon {
+						&-user {
+							@include sprite($user-hover);
+						}
+
+						&-users {
+							@include sprite($users-hover);
+						}
+
+						&-crosshair {
+							@include sprite($crosshair-hover);
+						}
+
+						&-bulb {
+							@include sprite($bulb-hover);
+						}
+					}
+
+					&::after {
+						border: 10px solid $base-gray-3;
+						//border-color: $base-gray-3 transparent transparent;
+						//border-left: 10px solid transparent;
+						//border-right: 10px solid transparent;
+						//border-top: 10px solid $base-gray-3;
+						bottom: -20px;
+						box-shadow: -3px 3px 4px 0 $black-transparent-10;
+						content: "";
+						height: 0;
+						left: calc(50% - 14.14px);
+						position: absolute;
+						transform: rotate(-45deg);
+						transform-origin: 0 0;
+						width: 0;
+					}
+				}
+			}
+
+			a {
+				color: $base-gray-2;
+				font-size: 12px;
+				text-align: center;
+				text-transform: uppercase;
+
+				.icon {
+					&-user {
+						@include sprite($user);
+					}
+
+					&-users {
+						@include sprite($users);
+					}
+
+					&-crosshair {
+						@include sprite($crosshair);
+					}
+
+					&-bulb {
+						@include sprite($bulb);
+					}
+				}
+
+				&:hover {
+					color: $base-blue;
+					font-weight: bold;
+
+					.icon {
+						&-user {
+							@include sprite($user-hover);
+						}
+
+						&-users {
+							@include sprite($users-hover);
+						}
+
+						&-crosshair {
+							@include sprite($crosshair-hover);
+						}
+
+						&-bulb {
+							@include sprite($bulb-hover);
+						}
+					}
+				}
+
+				[class*="icon-"] {
+					height: 24px;
+				}
 			}
 		}
 	}
