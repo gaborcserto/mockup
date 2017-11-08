@@ -3150,7 +3150,7 @@ footer {
   background-color: #f8f8f8;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .header__line--light {
     box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
   }
@@ -3218,7 +3218,7 @@ footer {
   max-width: 1148px;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .header__line__menu {
     box-shadow: none;
     display: flex;
@@ -3227,18 +3227,46 @@ footer {
   }
 }
 
+.header__line__menu__text {
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .header__line__menu__text {
+    display: inline-block;
+    float: left;
+    line-height: 24px;
+  }
+}
+
+.header__line__menu__icon {
+  transition: background 0.3s ease;
+  display: block;
+  height: 24px;
+}
+
+@media (min-width: 768px) {
+  .header__line__menu__icon {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+  }
+}
+
 .header__line__menu li {
   box-sizing: border-box;
   display: inline-block;
   float: left;
+  height: 91px;
   line-height: 14px;
   max-width: 25%;
   padding: 18px 12px;
   position: relative;
   text-align: center;
+  width: 100%;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .header__line__menu li {
     flex-grow: 100;
     float: left;
@@ -3251,14 +3279,15 @@ footer {
   font-weight: bold;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .header__line__menu li.active a {
-    line-height: 91px;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 54px;
+    line-height: 24px;
+    margin: 0 auto;
+    padding: 15px 0;
   }
-}
-
-.header__line__menu li.active a [class*="icon-"] {
-  height: 24px;
 }
 
 .header__line__menu li.active .icon-user {
@@ -3310,9 +3339,14 @@ footer {
   text-transform: uppercase;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .header__line__menu a {
-    line-height: 91px;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 54px;
+    line-height: 24px;
+    margin: 0 auto;
+    padding: 15px 0;
   }
 }
 
@@ -3383,10 +3417,6 @@ footer {
   height: 21px;
 }
 
-.header__line__menu a [class*="icon-"] {
-  height: 24px;
-}
-
 .container {
   height: auto !important;
   height: 100%;
@@ -3409,6 +3439,7 @@ footer {
 
 .container .ticket__cards {
   display: block;
+  margin-bottom: 40px;
 }
 
 .container .ticket__card {
@@ -3461,14 +3492,20 @@ footer {
 }
 
 .container .ticket__card__button {
-  background: #18a8e1;
-  border: 0;
+  transition: all 0.3s ease;
+  background-color: #18a8e1;
+  border: 1px solid #18a8e1;
+  box-sizing: border-box;
   color: #fff;
   display: block;
   font-weight: 900;
-  line-height: 52px;
+  line-height: 50px;
   text-transform: uppercase;
   width: 100%;
+}
+
+.container .ticket__card__button:hover {
+  opacity: .3;
 }
 
 .container .ticket .special-offer__title {
@@ -3478,6 +3515,11 @@ footer {
 
 .container .ticket .special-offer .ticket__card__button {
   background-color: #f03;
+  border: 1px solid #f03;
+}
+
+.container .ticket .special-offer .ticket__card__button:hover {
+  opacity: .3;
 }
 
 .container .ticket__buttons {
@@ -3486,8 +3528,10 @@ footer {
 }
 
 .container .ticket__button {
+  transition: all 0.3s ease;
   background: transparent;
   border: 1px solid #18a8e1;
+  box-shadow: none;
   color: #18a8e1;
   display: inline-block;
   font-weight: bold;
@@ -3495,6 +3539,12 @@ footer {
   margin: 0 auto;
   padding: 0 38px;
   text-transform: uppercase;
+}
+
+.container .ticket__button:hover {
+  background: #18a8e1;
+  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
+  color: #fff;
 }
 
 .container .trusted-partners {
@@ -3579,10 +3629,26 @@ footer {
   float: left;
 }
 
+.footer__menu--social > li a {
+  transition: all 0.3s ease;
+}
+
+.footer__menu--social > li a:hover {
+  color: #18a8e1;
+}
+
 .footer__menu > li {
   flex-grow: 100;
   float: left;
   text-transform: uppercase;
+}
+
+.footer__menu > li a {
+  transition: all 0.3s ease;
+}
+
+.footer__menu > li a:hover {
+  color: #18a8e1;
 }
 
 .footer__bottom {
@@ -3594,13 +3660,24 @@ footer {
 }
 
 .footer__bottom__item {
+  transition: all 0.3s ease;
+  cursor: pointer;
   display: block;
 }
 
+.footer__bottom__item:hover {
+  color: #18a8e1;
+}
+
 .footer__bottom__item--link {
+  transition: all 0.3s ease;
   display: inline-block;
   padding-right: 6px;
   position: relative;
+}
+
+.footer__bottom__item--link:hover {
+  color: #18a8e1;
 }
 
 .footer__bottom__item--link::after {
@@ -3608,7 +3685,7 @@ footer {
   box-sizing: border-box;
   content: "";
   display: inline-block;
-  height: 10px;
+  height: 13px;
   margin-left: 7px;
   position: relative;
   right: 0;
@@ -3635,7 +3712,7 @@ footer {
     box-sizing: border-box;
     content: "";
     display: inline-block;
-    height: 10px;
+    height: 13px;
     margin-left: 7px;
     position: relative;
     right: 0;

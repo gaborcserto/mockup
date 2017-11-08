@@ -18,6 +18,7 @@
 
 		&__cards {
 			display: block;
+			margin-bottom: 40px;
 		}
 
 		&__card {
@@ -67,14 +68,20 @@
 			}
 
 			&__button {
-				background: $base-blue;
-				border: 0;
+				@include transition(all $transition-duration ease);
+				background-color: $base-blue;
+				border: 1px solid $base-blue;
+				box-sizing: border-box;
 				color: $white;
 				display: block;
 				font-weight: 900;
-				line-height: 52px;
+				line-height: 50px;
 				text-transform: uppercase;
 				width: 100%;
+
+				&:hover {
+					opacity: .3;
+				}
 			}
 
 		}
@@ -89,6 +96,11 @@
 				&__card {
 					&__button {
 						background-color: $base-red;
+						border: 1px solid $base-red;
+
+						&:hover {
+							opacity: .3;
+						}
 					}
 				}
 			}
@@ -100,8 +112,10 @@
 		}
 
 		&__button {
+			@include transition(all $transition-duration ease);
 			background: transparent;
 			border: 1px solid $base-blue;
+			box-shadow: none;
 			color: $base-blue;
 			display: inline-block;
 			font-weight: bold;
@@ -109,6 +123,12 @@
 			margin: 0 auto;
 			padding: 0 38px;
 			text-transform: uppercase;
+
+			&:hover {
+				background: $base-blue;
+				box-shadow: 0 0 18px 0 $black-transparent-20;
+				color: $white;
+			}
 		}
 	}
 

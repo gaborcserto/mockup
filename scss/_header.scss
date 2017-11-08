@@ -10,7 +10,7 @@
 		&--light {
 			background-color: $base-gray-3;
 
-			@media (min-width: $breakpoints-md) {
+			@media (min-width: $breakpoints-sm) {
 				box-shadow: 0 0 18px 0 $black-transparent-20;
 			}
 		}
@@ -75,24 +75,48 @@
 			margin-bottom: 16px;
 			max-width: 1148px;
 
-			@media (min-width: $breakpoints-md) {
+			@media (min-width: $breakpoints-sm) {
 				box-shadow: none;
 				display: flex;
 				flex-wrap: wrap;
 				margin: 0 auto 16px;
 			}
 
+			&__text {
+				@include transition(all $transition-duration ease);
+
+				@media (min-width: $breakpoints-sm) {
+					display: inline-block;
+					float: left;
+					line-height: 24px;
+				}
+			}
+
+			&__icon {
+				@include transition(background $transition-duration ease);
+				display: block;
+				height: 24px;
+
+				@media (min-width: $breakpoints-sm) {
+					display: inline-block;
+					float: left;
+					margin-right: 10px;
+				}
+			}
+
 			li {
 				box-sizing: border-box;
 				display: inline-block;
 				float: left;
+				height: 91px;
 				line-height: 14px;
 				max-width: 25%;
 				padding: 18px 12px;
 				position: relative;
 				text-align: center;
+				width: 100%;
 
-				@media (min-width: $breakpoints-md) {
+				@media (min-width: $breakpoints-sm) {
 					flex-grow: 100;
 					float: left;
 				}
@@ -103,12 +127,13 @@
 						display: block;
 						font-weight: bold;
 
-						@media (min-width: $breakpoints-md) {
-							line-height: 91px;
-						}
-
-						[class*="icon-"] {
-							height: 24px;
+						@media (min-width: $breakpoints-sm) {
+							box-sizing: border-box;
+							display: inline-block;
+							height: 54px;
+							line-height: 24px;
+							margin: 0 auto;
+							padding: 15px 0;
 						}
 					}
 
@@ -132,10 +157,6 @@
 
 					&::after {
 						border: 10px solid $base-gray-3;
-						//border-color: $base-gray-3 transparent transparent;
-						//border-left: 10px solid transparent;
-						//border-right: 10px solid transparent;
-						//border-top: 10px solid $base-gray-3;
 						bottom: -20px;
 						box-shadow: -3px 3px 4px 0 $black-transparent-10;
 						content: "";
@@ -150,14 +171,20 @@
 			}
 
 			a {
+				//@include transition(all $transition-duration ease);
 				color: $base-gray-2;
 				display: block;
 				font-size: 12px;
 				text-align: center;
 				text-transform: uppercase;
 
-				@media (min-width: $breakpoints-md) {
-					line-height: 91px;
+				@media (min-width: $breakpoints-sm) {
+					box-sizing: border-box;
+					display: inline-block;
+					height: 54px;
+					line-height: 24px;
+					margin: 0 auto;
+					padding: 15px 0;
 				}
 
 				.icon {
@@ -203,10 +230,6 @@
 							@include sprite($bulb-hover);
 						}
 					}
-				}
-
-				[class*="icon-"] {
-					height: 24px;
 				}
 			}
 		}
