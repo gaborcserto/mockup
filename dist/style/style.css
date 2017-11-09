@@ -3165,9 +3165,11 @@ footer {
   transition: all 0s 0.3s;
   background: transparent;
   border: 0;
+  cursor: pointer;
   display: block;
   font-size: 0;
   height: 35px;
+  outline: 0;
   overflow: hidden;
   position: absolute;
   right: 20px;
@@ -3189,6 +3191,7 @@ footer {
 }
 
 .header__line__burger-button span::before, .header__line__burger-button span::after {
+  transition: all 0.3s ease;
   background-color: #fff;
   content: "";
   display: block;
@@ -3218,6 +3221,12 @@ footer {
 .header__line__burger-button.active span::after {
   bottom: 0;
   transform: rotate(-45deg);
+}
+
+@media (min-width: 992px) {
+  .header__line__burger-button {
+    display: none;
+  }
 }
 
 .header__line__menu {
@@ -3443,16 +3452,133 @@ footer {
 }
 
 .container .on-sale-menu {
+  margin: 0 auto;
+  max-width: 850px;
   text-align: center;
 }
 
+.container .on-sale-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container .on-sale-menu ul li {
+  margin: 10px 0;
+}
+
+@media (min-width: 768px) {
+  .container .on-sale-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .container .on-sale-menu ul li {
+    flex-grow: 100;
+    float: left;
+  }
+  .container .on-sale-menu ul li:first-child a::before {
+    display: none;
+  }
+  .container .on-sale-menu ul li:last-child a::after {
+    display: none;
+  }
+}
+
 .container .on-sale-menu__item {
+  transition: all 0.3s ease;
   color: #18a8e1;
+  display: inline-block;
+  line-height: 26px;
+  margin: 0 auto;
+  opacity: .3;
+  position: relative;
+  text-align: center;
   text-transform: uppercase;
+}
+
+.container .on-sale-menu__item:hover {
+  font-weight: bold;
+  opacity: 1;
+}
+
+.container .on-sale-menu__item .block {
+  background-color: #18a8e1;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+.container .on-sale-menu__item .block--transparent {
+  background-color: transparent;
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
+}
+
+.container .on-sale-menu__item .block--icon {
+  display: inline-block;
+  float: left;
+  height: 24px;
+  margin-left: 5px;
+  width: 24px;
+}
+
+.container .on-sale-menu__item .block--text {
+  color: #000;
+  float: left;
+  margin-left: 5px;
+}
+
+.container .on-sale-menu__item .block--text span {
+  color: #f03;
+}
+
+@media (min-width: 768px) {
+  .container .on-sale-menu__item .block--text {
+    display: block;
+    font-size: 10px;
+    line-height: 13px;
+    text-align: left;
+  }
+  .container .on-sale-menu__item .block--text span {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .container .on-sale-menu__item {
+    width: 100%;
+  }
+  .container .on-sale-menu__item::before, .container .on-sale-menu__item::after {
+    color: #18a8e1;
+    content: "/";
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+    height: 30px;
+    position: absolute;
+    text-align: center;
+    width: 14px;
+  }
+  .container .on-sale-menu__item::before {
+    left: -7px;
+  }
+  .container .on-sale-menu__item::after {
+    right: -7px;
+  }
+}
+
+.container .on-sale-menu__item .icon-clock {
+  background-image: url(../../dist/images/spritesheet.png);
+  background-position: 0px 0px;
+  width: 26px;
+  height: 26px;
 }
 
 .container .on-sale-menu__item.active {
   font-weight: bold;
+  opacity: 1;
 }
 
 .container .ticket {

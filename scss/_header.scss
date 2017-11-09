@@ -24,9 +24,11 @@
 			@include transition(all 0s .3s);
 			background: transparent;
 			border: 0;
+			cursor: pointer;
 			display: block;
 			font-size: 0;
 			height: 35px;
+			outline: 0;
 			overflow: hidden;
 			position: absolute;
 			right: 20px;
@@ -47,6 +49,7 @@
 
 				&::before,
 				&::after {
+					@include transition(all $transition-duration ease);
 					background-color: $white;
 					content: "";
 					display: block;
@@ -81,9 +84,9 @@
 				}
 			}
 
-			//@media (min-width: $breakpoints-md) {
-			//	display: none;
-			//}
+			@media (min-width: $breakpoints-md) {
+				display: none;
+			}
 		}
 
 		&__menu {

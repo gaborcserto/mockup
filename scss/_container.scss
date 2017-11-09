@@ -13,14 +13,139 @@
 	}
 
 	.on-sale-menu {
+		margin: 0 auto;
+		max-width: 850px;
 		text-align: center;
 
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			li {
+				margin: 10px 0;
+			}
+
+			@media (min-width: $breakpoints-sm) {
+				display: flex;
+				flex-wrap: wrap;
+
+				li {
+					flex-grow: 100;
+					float: left;
+
+
+					&:first-child {
+						a {
+							&::before {
+								display: none;
+							}
+						}
+					}
+
+					&:last-child {
+						a {
+							&::after {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		}
+
 		&__item {
+			@include transition(all $transition-duration ease);
 			color: $base-blue;
+			display: inline-block;
+			line-height: 26px;
+			margin: 0 auto;
+			opacity: .3;
+			position: relative;
+			text-align: center;
 			text-transform: uppercase;
+
+			&:hover {
+				font-weight: bold;
+				opacity: 1;
+			}
+
+			.block {
+				background-color: $base-blue;
+				color: $white;
+				display: inline-block;
+				font-weight: bold;
+				padding: 0 5px;
+
+				&--transparent {
+					background-color: transparent;
+					display: inline-block;
+					float: right;
+					margin-right: 10px;
+				}
+
+				&--icon {
+					display: inline-block;
+					float: left;
+					height: 24px;
+					margin-left: 5px;
+					width: 24px;
+				}
+
+				&--text {
+					color: $black;
+					float: left;
+					margin-left: 5px;
+
+					span {
+						color: $base-red;
+					}
+
+					@media (min-width: $breakpoints-sm) {
+						display: block;
+						font-size: 10px;
+						line-height: 13px;
+						text-align: left;
+
+						span {
+							display: block;
+						}
+					}
+				}
+			}
+
+			@media (min-width: $breakpoints-sm) {
+				width: 100%;
+
+				&::before,
+				&::after {
+					color: $base-blue;
+					content: "/";
+					display: inline-block;
+					font-size: 30px;
+					font-weight: bold;
+					height: 30px;
+					position: absolute;
+					text-align: center;
+					width: 14px;
+				}
+
+				&::before {
+					left: -7px;
+				}
+
+				&::after {
+					right: -7px;
+				}
+			}
+
+			.icon-clock {
+				@include sprite($clock);
+			}
 
 			&.active {
 				font-weight: bold;
+				opacity: 1;
 			}
 		}
 	}
