@@ -280,10 +280,10 @@
 
 			.ticket {
 				&__card {
-
 					&__inner {
 						@media (min-width: $breakpoints-md) {
 							height: 240px;
+							padding-top: 26px;
 						}
 					}
 

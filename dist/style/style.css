@@ -3725,6 +3725,7 @@ footer {
 @media (min-width: 992px) {
   .container .ticket .special-offer .ticket__card__inner {
     height: 240px;
+    padding-top: 26px;
   }
 }
 
