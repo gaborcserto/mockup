@@ -12,6 +12,19 @@
 		padding: 0 0 319px;
 	}
 
+	.on-sale-menu {
+		text-align: center;
+
+		&__item {
+			color: $base-blue;
+			text-transform: uppercase;
+
+			&.active {
+				font-weight: bold;
+			}
+		}
+	}
+
 	.ticket {
 		margin: 0 auto;
 		max-width: 1514px;
@@ -30,17 +43,27 @@
 
 		&__cards {
 			display: block;
-			margin-bottom: 40px;
+			padding: 40px 0;
+			position: relative;
 		}
 
 		&__card {
 			background-color: $base-gray-3;
-			box-shadow: 0 0 18px 0 $black-transparent-20;
+			box-shadow: 0 0 18px 0 $black-transparent-10;
 			display: block;
 			margin: 0 auto 31px;
 			min-height: 180px;
+			position: relative;
 			text-align: center;
 			width: 325px;
+
+			&:hover {
+				box-shadow: none;
+
+				.ticket__card__button {
+					opacity: .3;
+				}
+			}
 
 			@media (min-width: $breakpoints-sm) {
 				display: inline-block;
@@ -73,7 +96,12 @@
 					color: $base-blue;
 					font-size: 19px;
 					font-weight: bold;
+					padding: 0 10px;
 					text-transform: uppercase;
+
+					@media (min-width: $breakpoints-md) and (max-width: ($breakpoints-xl - 1px)) {
+						font-size: 1.9vw;
+					}
 				}
 
 				&__price {
@@ -116,6 +144,10 @@
 		}
 
 		.special-offer {
+			@media (min-width: $breakpoints-md) {
+				margin-top: -30px;
+			}
+
 			&__title {
 				color: $base-red;
 				text-transform: uppercase;
@@ -123,6 +155,13 @@
 
 			.ticket {
 				&__card {
+
+					&__inner {
+						@media (min-width: $breakpoints-md) {
+							height: 240px;
+						}
+					}
+
 					&__button {
 						background-color: $base-red;
 						border: 1px solid $base-red;

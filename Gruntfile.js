@@ -40,14 +40,14 @@ module.exports = function(grunt) {
                         debug: true
                     }
                 },
-                src: SCRIPT_SRC_FOLDER + 'app.es6',
-                dest: SCRIPT_DIST_FOLDER + 'script.dev.js'
+                src: SCRIPT_SRC_FOLDER + 'script.es6',
+				dest: SCRIPT_DIST_FOLDER + 'script.min.js'
             }
         },
         clean: {
-            scriptDev: SCRIPT_DIST_FOLDER + '*.dev.*',
+            scriptDev: SCRIPT_DIST_FOLDER + '*.min.*',
             scriptProd: SCRIPT_DIST_FOLDER + '*.min.*',
-            styleDev: STYLE_DIST_FOLDER + '*.dev.*',
+            styleDev: STYLE_DIST_FOLDER + '*.min.*',
             styleProd: STYLE_DIST_FOLDER + '*.min.*'
         },
         eslint: {
@@ -89,13 +89,13 @@ module.exports = function(grunt) {
                 padding: 20
             }
         },
-        uglify: {
+       /* uglify: {
             dist: {
                 files: {
                     [SCRIPT_DIST_FOLDER + 'script.min.js']: SCRIPT_DIST_FOLDER + 'script.dev.js'
                 }
             }
-        },
+        },*/
         watch: {
             options: {
                 livereload: 35100

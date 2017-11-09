@@ -79,7 +79,10 @@ rules:
     -
       size: tab
   leading-zero: 2
-  max-line-length: 2
+  max-line-length:
+    - 2
+    -
+      length: 100
   max-file-line-count:
     - 2
     -

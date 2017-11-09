@@ -3162,6 +3162,7 @@ footer {
 }
 
 .header__line__burger-button {
+  transition: all 0s 0.3s;
   background: transparent;
   border: 0;
   display: block;
@@ -3177,6 +3178,7 @@ footer {
 }
 
 .header__line__burger-button span {
+  transition: all 0.3s ease;
   background-color: #fff;
   display: block;
   height: 4px;
@@ -3197,17 +3199,25 @@ footer {
 }
 
 .header__line__burger-button span::before {
-  bottom: 10px;
-}
-
-.header__line__burger-button span::after {
   top: 10px;
 }
 
-@media (min-width: 992px) {
-  .header__line__burger-button {
-    display: none;
-  }
+.header__line__burger-button span::after {
+  bottom: 10px;
+}
+
+.header__line__burger-button.active span {
+  background: 0 0;
+}
+
+.header__line__burger-button.active span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.header__line__burger-button.active span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
 }
 
 .header__line__menu {
@@ -3292,28 +3302,28 @@ footer {
 
 .header__line__menu li.active .icon-user {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: 0px -88px;
+  background-position: -33px -90px;
   width: 11px;
   height: 19px;
 }
 
 .header__line__menu li.active .icon-users {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: 0px 0px;
+  background-position: -46px 0px;
   width: 27px;
   height: 24px;
 }
 
 .header__line__menu li.active .icon-crosshair {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: 0px -44px;
+  background-position: -47px -46px;
   width: 24px;
   height: 24px;
 }
 
 .header__line__menu li.active .icon-bulb {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: -94px 0px;
+  background-position: -93px -44px;
   width: 13px;
   height: 21px;
 }
@@ -3352,28 +3362,28 @@ footer {
 
 .header__line__menu a .icon-user {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: -31px -88px;
+  background-position: -64px -90px;
   width: 11px;
   height: 19px;
 }
 
 .header__line__menu a .icon-users {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: -47px 0px;
+  background-position: 0px -46px;
   width: 27px;
   height: 24px;
 }
 
 .header__line__menu a .icon-crosshair {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: -44px -44px;
+  background-position: -93px 0px;
   width: 24px;
   height: 24px;
 }
 
 .header__line__menu a .icon-bulb {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: -94px -41px;
+  background-position: 0px -90px;
   width: 13px;
   height: 21px;
 }
@@ -3391,28 +3401,28 @@ footer {
 
 .header__line__menu a:hover .icon-user {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: 0px -88px;
+  background-position: -33px -90px;
   width: 11px;
   height: 19px;
 }
 
 .header__line__menu a:hover .icon-users {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: 0px 0px;
+  background-position: -46px 0px;
   width: 27px;
   height: 24px;
 }
 
 .header__line__menu a:hover .icon-crosshair {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: 0px -44px;
+  background-position: -47px -46px;
   width: 24px;
   height: 24px;
 }
 
 .header__line__menu a:hover .icon-bulb {
   background-image: url(../../dist/images/spritesheet.png);
-  background-position: -94px 0px;
+  background-position: -93px -44px;
   width: 13px;
   height: 21px;
 }
@@ -3430,6 +3440,19 @@ footer {
     margin: 0 auto -319px;
     padding: 0 0 319px;
   }
+}
+
+.container .on-sale-menu {
+  text-align: center;
+}
+
+.container .on-sale-menu__item {
+  color: #18a8e1;
+  text-transform: uppercase;
+}
+
+.container .on-sale-menu__item.active {
+  font-weight: bold;
 }
 
 .container .ticket {
@@ -3453,17 +3476,27 @@ footer {
 
 .container .ticket__cards {
   display: block;
-  margin-bottom: 40px;
+  padding: 40px 0;
+  position: relative;
 }
 
 .container .ticket__card {
   background-color: #f8f8f8;
-  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.1);
   display: block;
   margin: 0 auto 31px;
   min-height: 180px;
+  position: relative;
   text-align: center;
   width: 325px;
+}
+
+.container .ticket__card:hover {
+  box-shadow: none;
+}
+
+.container .ticket__card:hover .ticket__card__button {
+  opacity: .3;
 }
 
 @media (min-width: 768px) {
@@ -3506,7 +3539,14 @@ footer {
   color: #18a8e1;
   font-size: 19px;
   font-weight: bold;
+  padding: 0 10px;
   text-transform: uppercase;
+}
+
+@media (min-width: 992px) and (max-width: 1399px) {
+  .container .ticket__card__inner__title {
+    font-size: 1.9vw;
+  }
 }
 
 .container .ticket__card__inner__price {
@@ -3545,9 +3585,21 @@ footer {
   opacity: .3;
 }
 
+@media (min-width: 992px) {
+  .container .ticket .special-offer {
+    margin-top: -30px;
+  }
+}
+
 .container .ticket .special-offer__title {
   color: #f03;
   text-transform: uppercase;
+}
+
+@media (min-width: 992px) {
+  .container .ticket .special-offer .ticket__card__inner {
+    height: 240px;
+  }
 }
 
 .container .ticket .special-offer .ticket__card__button {

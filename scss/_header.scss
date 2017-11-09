@@ -21,6 +21,7 @@
 		}
 
 		&__burger-button {
+			@include transition(all 0s .3s);
 			background: transparent;
 			border: 0;
 			display: block;
@@ -35,6 +36,7 @@
 			z-index: 1000;
 
 			span {
+				@include transition(all $transition-duration ease);
 				background-color: $white;
 				display: block;
 				height: 4px;
@@ -55,17 +57,33 @@
 				}
 
 				&::before {
-					bottom: 10px;
+					top: 10px;
 				}
 
 				&::after {
-					top: 10px;
+					bottom: 10px;
 				}
 			}
 
-			@media (min-width: $breakpoints-md) {
-				display: none;
+			&.active {
+				span {
+					background: 0 0;
+
+					&::before {
+						top: 0;
+						transform: rotate(45deg);
+					}
+
+					&::after {
+						bottom: 0;
+						transform: rotate(-45deg);
+					}
+				}
 			}
+
+			//@media (min-width: $breakpoints-md) {
+			//	display: none;
+			//}
 		}
 
 		&__menu {
