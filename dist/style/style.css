@@ -3457,6 +3457,18 @@ footer {
   text-align: center;
 }
 
+@media (min-width: 768px) {
+  .container .on-sale-menu {
+    margin: 75px auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container .on-sale-menu {
+    margin: 60px auto;
+  }
+}
+
 .container .on-sale-menu ul {
   list-style: none;
   margin: 0;
@@ -3581,17 +3593,17 @@ footer {
   opacity: 1;
 }
 
-.container .ticket {
+.ticket {
   margin: 0 auto;
   max-width: 1514px;
 }
 
-.container .ticket__group-description {
+.ticket__group-description {
   display: none;
 }
 
 @media (min-width: 992px) {
-  .container .ticket__group-description {
+  .ticket__group-description {
     display: block;
     font-size: 14px;
     margin: 0 auto 60px;
@@ -3600,13 +3612,13 @@ footer {
   }
 }
 
-.container .ticket__cards {
+.ticket__cards {
   display: block;
   padding: 40px 0;
   position: relative;
 }
 
-.container .ticket__card {
+.ticket__card {
   background-color: #f8f8f8;
   box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.1);
   display: block;
@@ -3617,16 +3629,16 @@ footer {
   width: 325px;
 }
 
-.container .ticket__card:hover {
+.ticket__card:hover {
   box-shadow: none;
 }
 
-.container .ticket__card:hover .ticket__card__button {
+.ticket__card:hover .ticket__card__button {
   opacity: .3;
 }
 
 @media (min-width: 768px) {
-  .container .ticket__card {
+  .ticket__card {
     display: inline-block;
     float: left;
     margin: 0 8px 26px;
@@ -3636,7 +3648,7 @@ footer {
 }
 
 @media (min-width: 992px) {
-  .container .ticket__card {
+  .ticket__card {
     display: inline-block;
     float: left;
     margin: 0 8px;
@@ -3645,23 +3657,35 @@ footer {
   }
 }
 
-.container .ticket__card__inner {
+.ticket__card__inner {
   padding-top: 20px;
 }
 
 @media (min-width: 768px) {
-  .container .ticket__card__inner {
+  .ticket__card__inner {
     height: 200px;
   }
 }
 
 @media (min-width: 992px) {
-  .container .ticket__card__inner {
+  .ticket__card__inner {
+    height: 220px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ticket__card__inner {
+    height: 240px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .ticket__card__inner {
     height: 180px;
   }
 }
 
-.container .ticket__card__inner__title {
+.ticket__card__inner__title {
   color: #18a8e1;
   font-size: 19px;
   font-weight: bold;
@@ -3670,31 +3694,93 @@ footer {
 }
 
 @media (min-width: 992px) and (max-width: 1399px) {
-  .container .ticket__card__inner__title {
-    font-size: 1.9vw;
+  .ticket__card__inner__title {
+    font-size: 1.8vw;
+    padding: 0 .9vw;
   }
 }
 
-.container .ticket__card__inner__price {
+.ticket__card__inner__price {
   color: #18a8e1;
   font-size: 37px;
   font-weight: 900;
   margin-bottom: 18px;
 }
 
-.container .ticket__card__inner__info {
+@media (min-width: 992px) and (max-width: 1399px) {
+  .ticket__card__inner__price {
+    font-size: 3.6vw;
+    margin-bottom: 1.7vw;
+  }
+}
+
+.ticket__card__inner__info {
   color: #ccc;
   font-size: 14px;
   line-height: 14px;
   margin-bottom: 8px;
 }
 
-.container .ticket__card__inner__date {
+@media (min-width: 992px) and (max-width: 1399px) {
+  .ticket__card__inner__info {
+    font-size: 1.3vw;
+    line-height: 1.3vw;
+    margin-bottom: .7vw;
+  }
+}
+
+.ticket__card__inner__date {
   color: #18a8e1;
   margin-bottom: 24px;
 }
 
-.container .ticket__card__button {
+@media (min-width: 992px) and (max-width: 1399px) {
+  .ticket__card__inner__date {
+    margin-bottom: 2.3vw;
+  }
+}
+
+.ticket__card__details {
+  font-size: 14px;
+  height: 0;
+  margin: 0 auto;
+  max-width: 250px;
+  overflow: hidden;
+}
+
+.ticket__card__details.active {
+  max-height: 100%;
+}
+
+.ticket__card__details ul {
+  list-style: none;
+  margin-top: 45px;
+  padding: 0;
+  text-align: left;
+}
+
+.ticket__card__details ul li {
+  line-height: 16px;
+  margin-bottom: 14px;
+  padding-left: 14px;
+  position: relative;
+}
+
+.ticket__card__details ul li::before {
+  color: #18a8e1;
+  content: "\f111";
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: 6px;
+  left: 0;
+  line-height: 16px;
+  position: absolute;
+  text-align: left;
+  top: 0;
+  width: 14px;
+}
+
+.ticket__card__button {
   transition: all 0.3s ease;
   background-color: #18a8e1;
   border: 1px solid #18a8e1;
@@ -3707,43 +3793,56 @@ footer {
   width: 100%;
 }
 
-.container .ticket__card__button:hover {
+.ticket__card__button:hover {
   opacity: .3;
 }
 
 @media (min-width: 992px) {
-  .container .ticket .special-offer {
+  .ticket .special-offer {
     margin-top: -30px;
   }
 }
 
-.container .ticket .special-offer__title {
+.ticket .special-offer__title {
   color: #f03;
   text-transform: uppercase;
 }
 
 @media (min-width: 992px) {
-  .container .ticket .special-offer .ticket__card__inner {
+  .ticket .special-offer .ticket__card__inner {
+    height: 280px;
+    padding-top: 26px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .ticket .special-offer .ticket__card__inner {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .ticket .special-offer .ticket__card__inner {
     height: 240px;
     padding-top: 26px;
   }
 }
 
-.container .ticket .special-offer .ticket__card__button {
+.ticket .special-offer .ticket__card__button {
   background-color: #f03;
   border: 1px solid #f03;
 }
 
-.container .ticket .special-offer .ticket__card__button:hover {
+.ticket .special-offer .ticket__card__button:hover {
   opacity: .3;
 }
 
-.container .ticket__buttons {
+.ticket__buttons {
   margin-bottom: 72px;
   text-align: center;
 }
 
-.container .ticket__button {
+.ticket__button {
   transition: all 0.3s ease;
   background: transparent;
   border: 1px solid #18a8e1;
@@ -3755,43 +3854,44 @@ footer {
   margin: 0 auto;
   padding: 0 38px;
   text-transform: uppercase;
+  width: 216px;
 }
 
-.container .ticket__button:hover {
+.ticket__button:hover {
   background: #18a8e1;
   box-shadow: 0 0 18px 0 rgba(0, 0, 0, 0.2);
   color: #fff;
 }
 
-.container .trusted-partners {
+.trusted-partners {
   text-align: center;
 }
 
-.container .trusted-partners__title {
+.trusted-partners__title {
   color: #ccc;
   margin-bottom: 38px;
   text-align: center;
   text-transform: uppercase;
 }
 
-.container .trusted-partners__logos {
+.trusted-partners__logos {
   display: inline-block;
   margin-bottom: 66px;
   text-align: center;
 }
 
-.container .trusted-partners__logos img {
+.trusted-partners__logos img {
   padding: 10px 5px 0;
 }
 
 @media (min-width: 768px) {
-  .container .trusted-partners__logos img {
+  .trusted-partners__logos img {
     padding: 10px 16px 0;
   }
 }
 
 @media (min-width: 1200px) {
-  .container .trusted-partners__logos img {
+  .trusted-partners__logos img {
     padding: 10px 18px;
   }
 }

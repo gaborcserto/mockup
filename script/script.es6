@@ -18,11 +18,11 @@ function burgerMenu(button) {
 function showDetails(button,target) {
 	$(button).on('click', () => {
 		if ($(button).hasClass('active') === true) {
-			$(button).removeClass('active');
-			$(target).animate({height:0}, 500);
+			$(button).removeClass('active').text('Compare benefits');
+			$(target).removeClass('active').animate({height:0}, 500);
 		} else {
-			$(button).addClass('active');
-			$(target).animate({height:'330px'}, 500);
+			$(button).addClass('active').text('Close');
+			$(target).addClass('active').animate({height:'290px'}, 500);
 		}
 	});
 }

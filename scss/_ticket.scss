@@ -1,0 +1,248 @@
+.ticket {
+	margin: 0 auto;
+	max-width: 1514px;
+
+	&__group-description {
+		display: none;
+
+		@media (min-width: $breakpoints-md) {
+			display: block;
+			font-size: 14px;
+			margin: 0 auto 60px;
+			max-width: 540px;
+			text-align: center;
+		}
+	}
+
+	&__cards {
+		display: block;
+		padding: 40px 0;
+		position: relative;
+	}
+
+	&__card {
+		background-color: $base-gray-3;
+		box-shadow: 0 0 18px 0 $black-transparent-10;
+		display: block;
+		margin: 0 auto 31px;
+		min-height: 180px;
+		position: relative;
+		text-align: center;
+		width: 325px;
+
+		&:hover {
+			box-shadow: none;
+
+			.ticket__card__button {
+				opacity: .3;
+			}
+		}
+
+		@media (min-width: $breakpoints-sm) {
+			display: inline-block;
+			float: left;
+			margin: 0 8px 26px;
+			max-width: 50%;
+			width: calc(50% - 16px);
+		}
+
+		@media (min-width: $breakpoints-md) {
+			display: inline-block;
+			float: left;
+			margin: 0 8px;
+			max-width: 25%;
+			width: calc(25% - 16px);
+		}
+
+		&__inner {
+			padding-top: 20px;
+
+			@media (min-width: $breakpoints-sm) {
+				height: 200px;
+			}
+
+			@media (min-width: $breakpoints-md) {
+				height: 220px;
+			}
+
+			@media (min-width: $breakpoints-lg) {
+				height: 240px;
+			}
+
+			@media (min-width: $breakpoints-xl) {
+				height: 180px;
+			}
+
+			&__title {
+				color: $base-blue;
+				font-size: 19px;
+				font-weight: bold;
+				padding: 0 10px;
+				text-transform: uppercase;
+
+				@media (min-width: $breakpoints-md) and (max-width: ($breakpoints-xl - 1px)) {
+					font-size: 1.8vw;
+					padding: 0 .9vw;
+				}
+			}
+
+			&__price {
+				color: $base-blue;
+				font-size: 37px;
+				font-weight: 900;
+				margin-bottom: 18px;
+
+				@media (min-width: $breakpoints-md) and (max-width: ($breakpoints-xl - 1px)) {
+					font-size: 3.6vw;
+					margin-bottom: 1.7vw;
+				}
+			}
+
+			&__info {
+				color: $base-gray-4;
+				font-size: 14px;
+				line-height: 14px;
+				margin-bottom: 8px;
+
+				@media (min-width: $breakpoints-md) and (max-width: ($breakpoints-xl - 1px)) {
+					font-size: 1.3vw;
+					line-height: 1.3vw;
+					margin-bottom: .7vw;
+				}
+			}
+
+			&__date {
+				color: $base-blue;
+				margin-bottom: 24px;
+
+				@media (min-width: $breakpoints-md) and (max-width: ($breakpoints-xl - 1px)) {
+					margin-bottom: 2.3vw;
+				}
+			}
+		}
+
+		&__details {
+			font-size: 14px;
+			height: 0;
+			margin: 0 auto;
+			max-width: 250px;
+			overflow: hidden;
+
+			&.active {
+				max-height: 100%;
+			}
+
+			ul {
+				list-style: none;
+				margin-top: 45px;
+				padding: 0;
+				text-align: left;
+
+				li {
+					line-height: 16px;
+					margin-bottom: 14px;
+					padding-left: 14px;
+					position: relative;
+
+					&::before {
+						color: $base-blue;
+						content: "\f111";
+						display: inline-block;
+						font-family: FontAwesome;
+						font-size: 6px;
+						left: 0;
+						line-height: 16px;
+						position: absolute;
+						text-align: left;
+						top: 0;
+						width: 14px;
+					}
+				}
+			}
+		}
+
+		&__button {
+			@include transition(all $transition-duration ease);
+			background-color: $base-blue;
+			border: 1px solid $base-blue;
+			box-sizing: border-box;
+			color: $white;
+			display: block;
+			font-weight: 900;
+			line-height: 50px;
+			text-transform: uppercase;
+			width: 100%;
+
+			&:hover {
+				opacity: .3;
+			}
+		}
+
+	}
+
+	.special-offer {
+		@media (min-width: $breakpoints-md) {
+			margin-top: -30px;
+		}
+
+		&__title {
+			color: $base-red;
+			text-transform: uppercase;
+		}
+
+		.ticket {
+			&__card {
+				&__inner {
+					@media (min-width: $breakpoints-md) {
+						height: 280px;
+						padding-top: 26px;
+					}
+
+					@media (min-width: $breakpoints-lg) {
+						height: 300px;
+					}
+
+					@media (min-width: $breakpoints-xl) {
+						height: 240px;
+						padding-top: 26px;
+					}
+				}
+
+				&__button {
+					background-color: $base-red;
+					border: 1px solid $base-red;
+
+					&:hover {
+						opacity: .3;
+					}
+				}
+			}
+		}
+	}
+
+	&__buttons {
+		margin-bottom: 72px;
+		text-align: center;
+	}
+
+	&__button {
+		@include transition(all $transition-duration ease);
+		background: transparent;
+		border: 1px solid $base-blue;
+		box-shadow: none;
+		color: $base-blue;
+		display: inline-block;
+		font-weight: bold;
+		line-height: 45px;
+		margin: 0 auto;
+		padding: 0 38px;
+		text-transform: uppercase;
+		width: 216px;
+
+		&:hover {
+			background: $base-blue;
+			box-shadow: 0 0 18px 0 $black-transparent-20;
+			color: $white;
+		}
+	}
+}
